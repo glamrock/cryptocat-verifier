@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xml:lang="en" > 
+<head> 
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+        <meta http-equiv="Content-Type" content="application/xhtml+xml" />  
+        <style>
+		body {
+			font-family: Arial, Verdana;
+			font-family: Verdana, Arial, Helvetica;
+			font-size: 11px;
+			color: #000;
+			padding: 10px;
+			width: 200px;
+			line-height: 1.35em;
+		}
+		div.main {
+		}
+		</style>
+        <script src="sha512.js" type="text/javascript"></script> 
+</head> 
+<body> 
+	<div id="main">	Performing check...<br /></div>
+	<script type="text/javascript">
+		var catjs, colorjs, cryptojs, jqueryjs, seedrandomjs, welcomejs, hash;
+		var verified = 0;
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/cat.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			catjs = shaObj.getHash("SHA-512", "HEX");
+			catjs = String(catjs).replace(/^\s+|\s+$/g,"");
+		  }
+		}
+		xhr.send();
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://crypto.cat/js/cat.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			hash = shaObj.getHash("SHA-512", "HEX");
+			hash = String(hash).replace(/^\s+|\s+$/g,"");
+			if (hash == catjs) {
+				verified++;
+			}
+		  }
+		}
+		xhr.send();
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/color.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			colorjs = shaObj.getHash("SHA-512", "HEX");
+		  }
+		}
+		xhr.send();
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://crypto.cat/js/color.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			hash = shaObj.getHash("SHA-512", "HEX");
+			if (hash == colorjs) {
+				verified++;
+			}
+		  }
+		}
+		xhr.send();
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/crypto.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			cryptojs = shaObj.getHash("SHA-512", "HEX");
+		  }
+		}
+		xhr.send();
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://crypto.cat/js/crypto.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			hash = shaObj.getHash("SHA-512", "HEX");
+			if (hash == cryptojs) {
+				verified++;
+			}
+		  }
+		}
+		xhr.send();
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/jquery.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			jqueryjs = shaObj.getHash("SHA-512", "HEX");
+		  }
+		}
+		xhr.send();
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://crypto.cat/js/jquery.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			hash = shaObj.getHash("SHA-512", "HEX");
+			if (hash == jqueryjs) {
+				verified++;
+			}
+		  }
+		}
+		xhr.send();
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/seedrandom.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+		 	seedrandomjs = shaObj.getHash("SHA-512", "HEX");
+		  }
+		}
+		xhr.send();
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://crypto.cat/js/seedrandom.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			hash = shaObj.getHash("SHA-512", "HEX");
+			if (hash == seedrandomjs) {
+				verified++;
+			}
+		  }
+		}
+		xhr.send();
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/welcome.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			welcomejs = shaObj.getHash("SHA-512", "HEX");
+		  }
+		}
+		xhr.send();
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://crypto.cat/js/welcome.js", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			hash = shaObj.getHash("SHA-512", "HEX");
+			if (hash == welcomejs) {
+				verified++;
+			}
+		  }
+		}
+		xhr.send();
+		
+		if (verified === 6) {
+			document.getElementById("main").innerHTML += "<span style=\"color: #0F0\">Integrity check successful.</span>";
+		}
+		else {
+			document.getElementById("main").innerHTML += "<span style=\"color: #F00\">Integrity check failed!</span>";
+		}
+	</script>
+</body> 
+</html>
