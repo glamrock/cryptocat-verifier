@@ -214,7 +214,6 @@
 		var x = randomEnough();
 		var match;
 		var matches = 0;
-		var scriptag = "<script type=\"text/javascript\">var install = \"https://crypto.cat/\";var update = \"1500\";var name = \"" + x +"\";var maxinput = \"256\";<\/script>";
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", "https://crypto.cat/?c=" + x, false);
 		xhr.onreadystatechange = function() {
@@ -237,7 +236,7 @@
 				if (match = xhr.responseText.match(/<script type=\"text\/javascript\">function StuffSelect\(id\) \{document\.getElementById\(id\)\.focus\(\)\;document\.getElementById\(id\).select\(\)\;}\<\/script\>/)) {
 					matches++;
 				}
-				if (match = xhr.responseText.match(scriptag)) {
+				if (match = xhr.responseText.match("<script type=\"text/javascript\">var install = \"https://crypto.cat/\";var update = \"1500\";var name = \"" + x +"\";var maxinput = \"256\";<\/script>")) {
 					matches++;
 				}
 				if (match = xhr.responseText.match(/\<script.+\<\/script>/g)) {
@@ -250,7 +249,7 @@
 		xhr.send();
 		
 		if (verified === 7 && matches === 7) {
-			document.getElementById("main").innerHTML = "<span>Integrity check successful.</span><br /><a target=\"_blank\" href=\"https://crypto.cat\">Open Cryptocat</a><br />";
+			document.getElementById("main").innerHTML = "<span>Integrity check passed.</span><br /><a target=\"_blank\" href=\"https://crypto.cat\">Open Cryptocat</a><br />";
 		}
 		else {
 			document.getElementById("main").innerHTML = "<span style=\"color:#F00\">Integrity check failed.</span><br />Clear your browser cache and try again. Should the problem persist, your Cryptocat session may be unsafe.";
