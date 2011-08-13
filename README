@@ -2,7 +2,7 @@ Cryptocat lets you set up encrypted, private chats for impromptu secure conversa
 
 Cryptocat Verifier is a Chrome extension that does client-side integrity verification of the client-side cryptosystem Cryptocat uses to encrypt your messages. By installing this extension, your Cryptocat sessions are protected against JavaScript poisoning attacks.
 
-Cryptocat Verifier works by comparing crypto.cat's JavaScript to the JavaScript files posted on GitHub via SHA512sum.
+Cryptocat Verifier works by comparing crypto.cat's cryptosystem to the latest Github version and by analyzing Cryptocat's chat page.
 
 Get it from the Chrome Web Store:
 https://chrome.google.com/webstore/detail/dlafegoljmjdfmhgoeojifolidmllaie
