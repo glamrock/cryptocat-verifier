@@ -27,7 +27,6 @@
 			font-weight: bold;
 		}
 		</style>
-        <script src="sha512.js" type="text/javascript"></script> 
 </head> 
 <body> 
 	<div id="main">	</div>
@@ -39,9 +38,7 @@
 		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/cat.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			catjs = shaObj.getHash("SHA-512", "HEX");
-			catjs = String(catjs).replace(/^\s+|\s+$/g,"");
+		    catjs = xhr.responseText;
 		  }
 		}
 		xhr.send();
@@ -50,9 +47,7 @@
 		xhr.open("GET", "https://crypto.cat/js/cat.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			hash = shaObj.getHash("SHA-512", "HEX");
-			hash = String(hash).replace(/^\s+|\s+$/g,"");
+		    hash = xhr.responseText;
 			if (hash == catjs) {
 				verified++;
 			}
@@ -64,8 +59,7 @@
 		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/color.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			colorjs = shaObj.getHash("SHA-512", "HEX");
+		    colorjs = xhr.responseText;
 		  }
 		}
 		xhr.send();
@@ -74,8 +68,7 @@
 		xhr.open("GET", "https://crypto.cat/js/color.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			hash = shaObj.getHash("SHA-512", "HEX");
+		    hash = xhr.responseText;
 			if (hash == colorjs) {
 				verified++;
 			}
@@ -87,8 +80,7 @@
 		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/crypto.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			cryptojs = shaObj.getHash("SHA-512", "HEX");
+		    cryptojs = xhr.responseText;
 		  }
 		}
 		xhr.send();
@@ -97,8 +89,7 @@
 		xhr.open("GET", "https://crypto.cat/js/crypto.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			hash = shaObj.getHash("SHA-512", "HEX");
+		    hash = xhr.responseText;
 			if (hash == cryptojs) {
 				verified++;
 			}
@@ -110,8 +101,7 @@
 		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/jquery.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			jqueryjs = shaObj.getHash("SHA-512", "HEX");
+		   jqueryjs = xhr.responseText;
 		  }
 		}
 		xhr.send();
@@ -120,8 +110,7 @@
 		xhr.open("GET", "https://crypto.cat/js/jquery.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			hash = shaObj.getHash("SHA-512", "HEX");
+		    hash = xhr.responseText;
 			if (hash == jqueryjs) {
 				verified++;
 			}
@@ -133,8 +122,7 @@
 		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/seedrandom.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-		 	seedrandomjs = shaObj.getHash("SHA-512", "HEX");
+		    seedrandomjs = xhr.responseText;
 		  }
 		}
 		xhr.send();
@@ -143,8 +131,7 @@
 		xhr.open("GET", "https://crypto.cat/js/seedrandom.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			hash = shaObj.getHash("SHA-512", "HEX");
+		    hash = xhr.responseText;
 			if (hash == seedrandomjs) {
 				verified++;
 			}
@@ -156,8 +143,7 @@
 		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/welcome.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			welcomejs = shaObj.getHash("SHA-512", "HEX");
+		    welcomejs = xhr.responseText;
 		  }
 		}
 		xhr.send();
@@ -166,8 +152,7 @@
 		xhr.open("GET", "https://crypto.cat/js/welcome.js", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			hash = shaObj.getHash("SHA-512", "HEX");
+		    hash = xhr.responseText;
 			if (hash == welcomejs) {
 				verified++;
 			}
@@ -179,8 +164,7 @@
 		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/css/style.css", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			stylecss = shaObj.getHash("SHA-512", "HEX");
+		    stylecss = xhr.responseText;
 		  }
 		}
 		xhr.send();
@@ -189,8 +173,7 @@
 		xhr.open("GET", "https://crypto.cat/css/style.css", false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
-			hash = shaObj.getHash("SHA-512", "HEX");
+		    hash = xhr.responseText;
 			if (hash == stylecss) {
 				verified++;
 			}
