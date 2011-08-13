@@ -16,15 +16,25 @@
 			width: 200px;
 			line-height: 1.35em;
 		}
+		a {
+			text-decoration: none;
+			color: #97CEEC;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		span {
+			font-weight: bold;
+		}
 		div.main {
 		}
 		</style>
         <script src="sha512.js" type="text/javascript"></script> 
 </head> 
 <body> 
-	<div id="main">	Performing check...<br /></div>
+	<div id="main">	</div>
 	<script type="text/javascript">
-		var catjs, colorjs, cryptojs, jqueryjs, seedrandomjs, welcomejs, hash;
+		var catjs, colorjs, cryptojs, jqueryjs, seedrandomjs, welcomejs, stylecss, hash;
 		var verified = 0;
 		
 		var xhr = new XMLHttpRequest();
@@ -167,11 +177,83 @@
 		}
 		xhr.send();
 		
-		if (verified === 6) {
-			document.getElementById("main").innerHTML += "<span style=\"color: #0F0\">Integrity check successful.</span>";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/css/style.css", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			stylecss = shaObj.getHash("SHA-512", "HEX");
+		  }
+		}
+		xhr.send();
+	
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://crypto.cat/css/style.css", false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+		    var shaObj = new jsSHA(xhr.responseText, "ASCII");
+			hash = shaObj.getHash("SHA-512", "HEX");
+			if (hash == stylecss) {
+				verified++;
+			}
+		  }
+		}
+		xhr.send();
+		
+		function randomEnough() {
+			var chars = "0123456789abcdefghiklmnopqrstuvwxyz";
+			var string_length = 8;
+			var randomstring = '';
+			for (var i=0; i<string_length; i++) {
+				var rnum = Math.floor(Math.random() * chars.length);
+				randomstring += chars.substring(rnum,rnum+1);
+			}
+			return randomstring;
+		}
+		
+		var x = randomEnough();
+		var match;
+		var matches = 0;
+		var scriptag = "<script type=\"text/javascript\">var install = \"https://crypto.cat/\";var update = \"1500\";var name = \"" + x +"\";var maxinput = \"256\";<\/script>";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://crypto.cat/?c=" + x, false);
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState == 4) {
+			    if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/jquery.js\"><\/script>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/cat.js\"><\/script>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/color.js\"><\/script>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/seedrandom.js\"><\/script>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/crypto.js\"><\/script>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/<script type=\"text\/javascript\">function StuffSelect\(id\) \{document\.getElementById\(id\)\.focus\(\)\;document\.getElementById\(id\).select\(\)\;}\<\/script\>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(scriptag)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/\<script.+\<\/script>/g)) {
+					if (match.length > 7) {
+						matches = 0;
+					}
+				}
+			}
+		}
+		xhr.send();
+		
+		if (verified === 7 && matches === 7) {
+			document.getElementById("main").innerHTML = "<span>Integrity check successful.</span><br /><a target=\"_blank\" href=\"https://crypto.cat\">Open Cryptocat</a><br />";
 		}
 		else {
-			document.getElementById("main").innerHTML += "<span style=\"color: #F00\">Integrity check failed!</span>";
+			document.getElementById("main").innerHTML = "<span style=\"color:#F00\">Integrity check failed.</span><br />Clear your browser cache and try again. Should the problem persist, your Cryptocat session may be unsafe.";
 		}
 	</script>
 </body> 
