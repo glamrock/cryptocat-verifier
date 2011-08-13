@@ -26,8 +26,6 @@
 		span {
 			font-weight: bold;
 		}
-		div.main {
-		}
 		</style>
         <script src="sha512.js" type="text/javascript"></script> 
 </head> 
@@ -202,7 +200,7 @@
 		
 		function randomEnough() {
 			var chars = "0123456789abcdefghiklmnopqrstuvwxyz";
-			var string_length = 8;
+			var string_length = 16;
 			var randomstring = '';
 			for (var i=0; i<string_length; i++) {
 				var rnum = Math.floor(Math.random() * chars.length);
@@ -218,19 +216,19 @@
 		xhr.open("GET", "https://crypto.cat/?c=" + x, false);
 		xhr.onreadystatechange = function() {
 		  if (xhr.readyState == 4) {
-			    if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/jquery.js\"><\/script>/)) {
+			    if (match = xhr.responseText.match("<script type=\"text/javascript\" src=\"js/jquery.js\"><\/script>")) {
 					matches++;
 				}
-				if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/cat.js\"><\/script>/)) {
+				if (match = xhr.responseText.match("<script type=\"text/javascript\" src=\"js/cat.js\"><\/script>")) {
 					matches++;
 				}
-				if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/color.js\"><\/script>/)) {
+				if (match = xhr.responseText.match("<script type=\"text/javascript\" src=\"js/color.js\"><\/script>")) {
 					matches++;
 				}
-				if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/seedrandom.js\"><\/script>/)) {
+				if (match = xhr.responseText.match("<script type=\"text/javascript\" src=\"js/seedrandom.js\"><\/script>")) {
 					matches++;
 				}
-				if (match = xhr.responseText.match(/<script type=\"text\/javascript\" src=\"js\/crypto.js\"><\/script>/)) {
+				if (match = xhr.responseText.match("<script type=\"text/javascript\" src=\"js/crypto.js\"><\/script>")) {
 					matches++;
 				}
 				if (match = xhr.responseText.match(/<script type=\"text\/javascript\">function StuffSelect\(id\) \{document\.getElementById\(id\)\.focus\(\)\;document\.getElementById\(id\).select\(\)\;}\<\/script\>/)) {
@@ -239,8 +237,42 @@
 				if (match = xhr.responseText.match("<script type=\"text/javascript\">var install = \"https://crypto.cat/\";var update = \"1500\";var name = \"" + x +"\";var maxinput = \"256\";<\/script>")) {
 					matches++;
 				}
-				if (match = xhr.responseText.match(/\<script.+\<\/script>/g)) {
+				if (match = xhr.responseText.match(/onclick\=\"StuffSelect\(\'url\'\)\;\"/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/onclick\=\"StuffSelect\(\'key\'\)\;\"/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/onclick\=\"logout\(\)\;\"/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/onkeyup\=\"keytime\(\)\;\"/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/\<meta http-equiv\=\"Content-Type\" content\=\"application\/xhtml\+xml\" \/\>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/\<link rel\=\"stylesheet\" href\=\"css\/style.css\" type\=\"text\/css\" \/\>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/\<link rel\=\"icon\" type\=\"image\/png\" href\=\"img\/favicon.gif\" \/\>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/\<input type\=\"text\" name\=\"input\" id\=\"input\" maxlength\=\"256\" onkeydown\=\"textcounter\(document\.chatform\.input\,document\.chatform\.talk\,256\)\" onkeyup\=\"textcounter\(document\.chatform\.input\,document\.chatform\.talk\,256\)\" autocomplete\=\"off\" \/\>\<input type\=\"submit\" name\=\"talk\" id\=\"talk\" onmouseover\=\"curcount \= this\.value\; this\.value\=\'send\'\;\" onmouseout\=\"this\.value\=curcount\;\" value\=\"256\" \/\>/)) {
+					matches++;
+				}
+				if (match = xhr.responseText.match(/\<script.+/g)) {
 					if (match.length > 7) {
+						matches = 0;
+					}
+				}
+				if (match = xhr.responseText.match(/onload|onunload|onblur|onchange|onfocus|onreset|onselect|onsubmit|onabort|onkey|ondblclick|onclick|onmouse|applet|embed|object|meta|style|link/g)) {
+					if (match.length > 13) {
+						matches = 0;
+					}
+				}
+				if (match = xhr.responseText.match(/frame/g)) {
+					if (match.length > 1) {
 						matches = 0;
 					}
 				}
@@ -248,7 +280,7 @@
 		}
 		xhr.send();
 		
-		if (verified === 7 && matches === 7) {
+		if (verified === 7 && matches === 15) {
 			document.getElementById("main").innerHTML = "<span>Integrity check passed.</span><br /><a target=\"_blank\" href=\"https://crypto.cat\">Open Cryptocat</a><br />";
 		}
 		else {
