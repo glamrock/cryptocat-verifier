@@ -1,6 +1,6 @@
 {
 	"name": "Cryptocat Verifier",
-	"version": "0.27",
+	"version": "0.28",
 	"description": "Chrome extension that performs additional Cryptocat session integrity checks for the paranoid user.",
 	"browser_action": {
 		"default_icon": "icon.png",
