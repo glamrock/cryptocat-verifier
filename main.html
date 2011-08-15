@@ -7,211 +7,211 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
         <meta http-equiv="Content-Type" content="application/xhtml+xml" />  
         <style>
-		body {
-			font-family: Arial, Verdana;
-			font-family: Verdana, Arial, Helvetica;
-			font-size: 11px;
-			color: #000;
-			padding: 10px;
-			width: 200px;
-			line-height: 1.35em;
-		}
-		a {
-			text-decoration: none;
-			color: #97CEEC;
-		}
-		a:hover {
-			text-decoration: underline;
-		}
-		span {
-			font-weight: bold;
-		}
-		</style>
+        body {
+            font-family: Arial, Verdana;
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 11px;
+            color: #000;
+            padding: 10px;
+            width: 200px;
+            line-height: 1.35em;
+        }
+        a {
+            text-decoration: none;
+            color: #97CEEC;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        span {
+            font-weight: bold;
+        }
+        </style>
 </head> 
 <body> 
-	<div id="main">	</div>
-	<script type="text/javascript">
-		var catjs, colorjs, cryptojs, jqueryjs, seedrandomjs, welcomejs, stylecss, hash;
-		var verified = 0;
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/cat.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    catjs = xhr.responseText;
-		  }
-		}
-		xhr.send();
+    <div id="main"> </div>
+    <script type="text/javascript">
+        var catjs, colorjs, cryptojs, jqueryjs, seedrandomjs, welcomejs, stylecss, hash;
+        var verified = 0;
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "js/cat.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            catjs = xhr.responseText;
+          }
+        }
+        xhr.send();
 
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://crypto.cat/js/cat.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    hash = xhr.responseText;
-			if (hash == catjs) {
-				verified++;
-			}
-		  }
-		}
-		xhr.send();
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/color.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    colorjs = xhr.responseText;
-		  }
-		}
-		xhr.send();
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://crypto.cat/js/color.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    hash = xhr.responseText;
-			if (hash == colorjs) {
-				verified++;
-			}
-		  }
-		}
-		xhr.send();
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/crypto.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    cryptojs = xhr.responseText;
-		  }
-		}
-		xhr.send();
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://crypto.cat/js/crypto.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    hash = xhr.responseText;
-			if (hash == cryptojs) {
-				verified++;
-			}
-		  }
-		}
-		xhr.send();
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/jquery.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		   jqueryjs = xhr.responseText;
-		  }
-		}
-		xhr.send();
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://crypto.cat/js/jquery.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    hash = xhr.responseText;
-			if (hash == jqueryjs) {
-				verified++;
-			}
-		  }
-		}
-		xhr.send();
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/seedrandom.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    seedrandomjs = xhr.responseText;
-		  }
-		}
-		xhr.send();
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://crypto.cat/js/seedrandom.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    hash = xhr.responseText;
-			if (hash == seedrandomjs) {
-				verified++;
-			}
-		  }
-		}
-		xhr.send();
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/js/welcome.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    welcomejs = xhr.responseText;
-		  }
-		}
-		xhr.send();
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://crypto.cat/js/welcome.js", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    hash = xhr.responseText;
-			if (hash == welcomejs) {
-				verified++;
-			}
-		  }
-		}
-		xhr.send();
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://raw.github.com/kaepora/cryptocat/master/css/style.css", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    stylecss = xhr.responseText;
-		  }
-		}
-		xhr.send();
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://crypto.cat/css/style.css", false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-		    hash = xhr.responseText;
-			if (hash == stylecss) {
-				verified++;
-			}
-		  }
-		}
-		xhr.send();
-		
-		function randomEnough() {
-			var chars = "abcdefghiklmnopqrstuvwxyz";
-			var string_length = Math.floor(Math.random()*28 + 1);
-			var randomstring = '';
-			for (var i=0; i<string_length; i++) {
-				var rnum = Math.floor(Math.random() * chars.length);
-				randomstring += chars.substring(rnum,rnum+1);
-			}
-			return randomstring;
-		}
-		
-		var x = randomEnough();
-		var match;
-		var matches = 0;
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://crypto.cat/?c=" + x, false);
-		xhr.onreadystatechange = function() {
-		  if (xhr.readyState == 4) {
-			    if (match = xhr.responseText.match(/^<\?xml version="1\.0" encoding="UTF-8"\?><\!DOCTYPE html PUBLIC "-\/\/W3C\/\/DTD XHTML 1\.1\/\/EN" "http:\/\/www\.w3\.org\/TR\/xhtml11\/DTD\/xhtml11\.dtd">[\s\S]*<html xmlns\="http:\/\/www\.w3\.org\/1999\/xhtml" xmlns:xsi="http:\/\/www\.w3\.org\/2001\/XMLSchema-instance" xml:lang="en">[\s\S]*<head>[\s\S]*<meta http-equiv="Content-Type" content="application\/xhtml\+xml" \/>[\s\S]*<title>cryptocat<\/title>[\s\S]*<link rel="stylesheet" href="css\/style.css" type="text\/css" \/>[\s\S]*<link rel="icon" type="image\/png" href="img\/favicon.gif" \/>[\s\S]*<script type="text\/javascript" src="js\/jquery.js"><\/script>[\s\S]*<script type="text\/javascript" src="js\/color.js"><\/script>[\s\S]*<!-- cryptocat uses the crypto-js library - http:\/\/code.google.com\/p\/crypto-js\/ -->[\s\S]*<!-- http:\/\/crypto-js.googlecode.com\/files\/2.3.0-crypto-sha1-hmac-pbkdf2-blockmodes-aes.js -->[\s\S]*<script type="text\/javascript" src="js\/crypto.js"><\/script>[\s\S]*<script type="text\/javascript" src="js\/seedrandom.js"><\/script>[\s\S]*<script type="text\/javascript">function StuffSelect\(id\) {document\.getElementById\(id\)\.focus\(\);document\.getElementById\(id\)\.select\(\);}<\/script>[\s\S]*<\/head>[\s\S]*<body onbeforeunload="logout\(\);">[\s\S]*<div id="main">[\s\S]*<div id="front">[\s\S]*<div id="changenick"[\s\S]*<p>enter your nickname<\/p>[\s\S]*<form name="nickform" id="nickform" method="post" action="https:\/\/crypto.cat\/">[\s\S]*<input type="text" name="nickinput" id="nickinput" value="[a-z]{1,30}" autocomplete="off" maxlength="12" \/>[\s\S]*<input type="submit" class="nicksubmit" value="chat" \/>[\s\S]*<\/form>[\s\S]*<p class="small">\(letters only, 12 characters max\)<\/p>[\s\S]*<\/div>[\s\S]*<\/div>[\s\S]*<img src="img\/cryptocat.png" alt="cryptocat" \/>[\s\S]*<img src="img\/maximize.png" alt="maximize" id="maximize" title="expand" \/>[\s\S]*<img src="img\/nosound.png" alt="sound" id="sound" title="enable message notifications" \/>[\s\S]*<img src="img\/user.png" alt="change nick" id="nickicon" title="change nickname" \/>[\s\S]*<input type="text" value="[a-z]{1,30}" name="name" id="name" class="invisible" \/>[\s\S]*<div class="invisible" id="loader"><\/div>[\s\S]*<div id="chat"><\/div>[\s\S]*<div id="chatters"><\/div>[\s\S]*<div id="info">chatting as <a href="#" id="nick">[a-z]{1,30}<\/a> on [\s\S]*<input readonly type="text" id="url" onclick="StuffSelect\('url'\);" value="https:\/\/crypto.cat\/\?c=[a-z]{1,30}" \/>[\s\S]*<span id="strength"><\/span>[\s\S]*<a class="logout" onclick="logout\(\);" href="#">log out<\/a><\/div>[\s\S]*<input type="text" id="key" value="type a key here for encrypted chat. all chatters must use the same key." class="key" maxlength="192" onclick="StuffSelect\(\'key\'\);" onkeyup="keytime\(\);" autocomplete="off" \/>[\s\S]*<form name="chatform" id="chatform" method="post" action="https:\/\/crypto.cat\/">[\s\S]*<input type="text" name="input" id="input" maxlength="256" onkeydown="textcounter\(document.chatform.input,document.chatform.talk,256\)" onkeyup="textcounter\(document.chatform.input,document.chatform.talk,256\)" autocomplete="off" \/><input type="submit" name="talk" id="talk" onmouseover="curcount = this.value; this.value=\'send\';" onmouseout="this\.value=curcount;" value="256" \/>[\s\S]*<\/form>[\s\S]*<\/div>[\s\S]*<script type="text\/javascript">var install = "https:\/\/crypto.cat\/";var update = "1500";var name = "[a-z]{1,30}";var maxinput = "256";<\/script>[\s\S]*<script type="text\/javascript" src="js\/cat.js"><\/script><\/body>[\s\S]*<\/html>$/)) {
-					verified++;
-				}
-			}
-		}
-		xhr.send();
-		
-		if (verified === 8) {
-			document.getElementById("main").innerHTML = "<span>Integrity check passed.</span><br /><a target=\"_blank\" href=\"https://crypto.cat\">Open Cryptocat</a><br />";
-		}
-		else {
-			document.getElementById("main").innerHTML = "<span style=\"color:#F00\">Integrity check failed.</span><br />But wait, this doesn't necessarily mean that your connection is unsafe.<br /><br /> <strong>Before panicking:</strong><br /><li>Make sure your copy of Cryptocat Verifier is up-to-date:<ul>Go to Tools > Extensions</ul><ul>Click on 'Developer mode' and then click 'Update extensions now'</ul><li>Clear your browser cache and try again.</li><br /><br />Should the problem persist, your Cryptocat session may be unsafe.";
-		}
-	</script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://crypto.cat/js/cat.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            hash = xhr.responseText;
+            if (hash == catjs) {
+                verified++;
+            }
+          }
+        }
+        xhr.send();
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "js/color.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            colorjs = xhr.responseText;
+          }
+        }
+        xhr.send();
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://crypto.cat/js/color.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            hash = xhr.responseText;
+            if (hash == colorjs) {
+                verified++;
+            }
+          }
+        }
+        xhr.send();
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "js/crypto.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            cryptojs = xhr.responseText;
+          }
+        }
+        xhr.send();
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://crypto.cat/js/crypto.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            hash = xhr.responseText;
+            if (hash == cryptojs) {
+                verified++;
+            }
+          }
+        }
+        xhr.send();
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "js/jquery.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+           jqueryjs = xhr.responseText;
+          }
+        }
+        xhr.send();
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://crypto.cat/js/jquery.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            hash = xhr.responseText;
+            if (hash == jqueryjs) {
+                verified++;
+            }
+          }
+        }
+        xhr.send();
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "js/seedrandom.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            seedrandomjs = xhr.responseText;
+          }
+        }
+        xhr.send();
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://crypto.cat/js/seedrandom.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            hash = xhr.responseText;
+            if (hash == seedrandomjs) {
+                verified++;
+            }
+          }
+        }
+        xhr.send();
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "js/welcome.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            welcomejs = xhr.responseText;
+          }
+        }
+        xhr.send();
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://crypto.cat/js/welcome.js", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            hash = xhr.responseText;
+            if (hash == welcomejs) {
+                verified++;
+            }
+          }
+        }
+        xhr.send();
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "css/style.css", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            stylecss = xhr.responseText;
+          }
+        }
+        xhr.send();
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://crypto.cat/css/style.css", false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            hash = xhr.responseText;
+            if (hash == stylecss) {
+                verified++;
+            }
+          }
+        }
+        xhr.send();
+        
+        function randomEnough() {
+            var chars = "abcdefghiklmnopqrstuvwxyz";
+            var string_length = Math.floor(Math.random()*28 + 1);
+            var randomstring = '';
+            for (var i=0; i<string_length; i++) {
+                var rnum = Math.floor(Math.random() * chars.length);
+                randomstring += chars.substring(rnum,rnum+1);
+            }
+            return randomstring;
+        }
+        
+        var x = randomEnough();
+        var match;
+        var matches = 0;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://crypto.cat/?c=" + x, false);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+                if (match = xhr.responseText.match(/^<\?xml version="1\.0" encoding="UTF-8"\?><\!DOCTYPE html PUBLIC "-\/\/W3C\/\/DTD XHTML 1\.1\/\/EN" "http:\/\/www\.w3\.org\/TR\/xhtml11\/DTD\/xhtml11\.dtd">[\s\S]*<html xmlns\="http:\/\/www\.w3\.org\/1999\/xhtml" xmlns:xsi="http:\/\/www\.w3\.org\/2001\/XMLSchema-instance" xml:lang="en">[\s\S]*<head>[\s\S]*<meta http-equiv="Content-Type" content="application\/xhtml\+xml" \/>[\s\S]*<title>cryptocat<\/title>[\s\S]*<link rel="stylesheet" href="css\/style.css" type="text\/css" \/>[\s\S]*<link rel="icon" type="image\/png" href="img\/favicon.gif" \/>[\s\S]*<script type="text\/javascript" src="js\/jquery.js"><\/script>[\s\S]*<script type="text\/javascript" src="js\/color.js"><\/script>[\s\S]*<!-- cryptocat uses the crypto-js library - http:\/\/code.google.com\/p\/crypto-js\/ -->[\s\S]*<!-- http:\/\/crypto-js.googlecode.com\/files\/2.3.0-crypto-sha1-hmac-pbkdf2-blockmodes-aes.js -->[\s\S]*<script type="text\/javascript" src="js\/crypto.js"><\/script>[\s\S]*<script type="text\/javascript" src="js\/seedrandom.js"><\/script>[\s\S]*<script type="text\/javascript">function StuffSelect\(id\) {document\.getElementById\(id\)\.focus\(\);document\.getElementById\(id\)\.select\(\);}<\/script>[\s\S]*<\/head>[\s\S]*<body onbeforeunload="logout\(\);">[\s\S]*<div id="main">[\s\S]*<div id="front">[\s\S]*<div id="changenick"[\s\S]*<p>enter your nickname<\/p>[\s\S]*<form name="nickform" id="nickform" method="post" action="https:\/\/crypto.cat\/">[\s\S]*<input type="text" name="nickinput" id="nickinput" value="[a-z]{1,30}" autocomplete="off" maxlength="12" \/>[\s\S]*<input type="submit" class="nicksubmit" value="chat" \/>[\s\S]*<\/form>[\s\S]*<p class="small">\(letters only, 12 characters max\)<\/p>[\s\S]*<\/div>[\s\S]*<\/div>[\s\S]*<img src="img\/cryptocat.png" alt="cryptocat" \/>[\s\S]*<img src="img\/maximize.png" alt="maximize" id="maximize" title="expand" \/>[\s\S]*<img src="img\/nosound.png" alt="sound" id="sound" title="enable message notifications" \/>[\s\S]*<img src="img\/user.png" alt="change nick" id="nickicon" title="change nickname" \/>[\s\S]*<input type="text" value="[a-z]{1,30}" name="name" id="name" class="invisible" \/>[\s\S]*<div class="invisible" id="loader"><\/div>[\s\S]*<div id="chat"><\/div>[\s\S]*<div id="chatters"><\/div>[\s\S]*<div id="info">chatting as <a href="#" id="nick">[a-z]{1,30}<\/a> on [\s\S]*<input readonly type="text" id="url" onclick="StuffSelect\('url'\);" value="https:\/\/crypto.cat\/\?c=[a-z]{1,30}" \/>[\s\S]*<span id="strength"><\/span>[\s\S]*<a class="logout" onclick="logout\(\);" href="#">log out<\/a><\/div>[\s\S]*<input type="text" id="key" value="type a key here for encrypted chat. all chatters must use the same key." class="key" maxlength="192" onclick="StuffSelect\(\'key\'\);" onkeyup="keytime\(\);" autocomplete="off" \/>[\s\S]*<form name="chatform" id="chatform" method="post" action="https:\/\/crypto.cat\/">[\s\S]*<input type="text" name="input" id="input" maxlength="256" onkeydown="textcounter\(document.chatform.input,document.chatform.talk,256\)" onkeyup="textcounter\(document.chatform.input,document.chatform.talk,256\)" autocomplete="off" \/><input type="submit" name="talk" id="talk" onmouseover="curcount = this.value; this.value=\'send\';" onmouseout="this\.value=curcount;" value="256" \/>[\s\S]*<\/form>[\s\S]*<\/div>[\s\S]*<script type="text\/javascript">var install = "https:\/\/crypto.cat\/";var update = "1500";var name = "[a-z]{1,30}";var maxinput = "256";<\/script>[\s\S]*<script type="text\/javascript" src="js\/cat.js"><\/script><\/body>[\s\S]*<\/html>$/)) {
+                    verified++;
+                }
+            }
+        }
+        xhr.send();
+        
+        if (verified === 8) {
+            document.getElementById("main").innerHTML = "<span>Integrity check passed.</span><br /><a target=\"_blank\" href=\"https://crypto.cat\">Open Cryptocat</a><br />";
+        }
+        else {
+            document.getElementById("main").innerHTML = "<span style=\"color:#F00\">Integrity check failed.</span><br />But wait, this doesn't necessarily mean that your connection is unsafe. <strong>This may just mean that you need to update your copy of Cryptocat Verifier.</strong><br /><br /> <strong>Before panicking:</strong><br /><li>Make sure your copy of Cryptocat Verifier is up-to-date:<ul>Go to Tools > Extensions</ul><ul>Click on 'Developer mode' and then click 'Update extensions now'</ul><li>Clear your browser cache and try again.</li><br /><br />Should the problem persist, your Cryptocat session may be unsafe.";
+        }
+    </script>
 </body>
 </html>
